@@ -7,8 +7,21 @@
 <body>
 {%  extends "theme.html" %}
 {% block content %}
-这是产品列表网页主要内容
-{% endblock content %}
+<div class = "container">
+{% for product in products.all %}
+    <div class = "row">
 
+        <div class = "card" style = "width:18rem;">
+            <img class = "card-img-top" src="{{ product.icon.url }}" alt="Card img cap">
+        </div>
+        <div class = "col-md-8" style = "padding-left: 50px">
+        <h3><a href="products/{{product.id}}">{{ product.title }}</a></h3>
+            <br>
+        {{ product.intro }}
+        </div>
+    </div>
+{% endfor %}
+{% endblock content %}
+</div>
 </body>
 </html>
